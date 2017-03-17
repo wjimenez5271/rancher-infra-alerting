@@ -1,10 +1,11 @@
 from flask import Flask, request, abort
-app = Flask(__name__)
 import logging
 import syslog_client
 
 LOG_LEVEL = 'DEBUG'
 SYSLOG_HOST = 'localhost'
+
+app = Flask(__name__)
 
 
 def init_logger():
@@ -50,6 +51,13 @@ def report_alert():
     handle_alert(request.json)
     return 'OK'
 
+@app.route("/health", methods=['GET'])
+def health():
+    '''
+    health check endpoint for external service to monitor
+    :return:
+    '''
+    return 'OK'
 
 if __name__ == "__main__":
     log = init_logger()
