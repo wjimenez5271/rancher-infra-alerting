@@ -95,7 +95,7 @@ class CheckEtcd(RancherCheck):
         self.last_eval = 0
 
     def eval(self):
-        r = requests.get('http://etcd.rancher.internal:2379/health', timeout=1)
+        r = requests.get('http://etcd.kubernetes.rancher.internal:2379/health', timeout=1)
         if r.status_code != 200:
             log.info("Recieved the following non-200 response for check {0}: {1}".format(self.name, r.text))
             self.alert()
