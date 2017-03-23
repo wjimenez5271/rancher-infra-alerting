@@ -120,7 +120,7 @@ class RancherMonitor(object):
     def add_check(self, _check):
         self.checks.append(_check)
 
-    def eval_chekcs(self):
+    def eval_checks(self):
         for check in self.checks:
             log.info("Evaluating check {0}".format(check.name))
             try:
@@ -153,7 +153,7 @@ if __name__ == '__main__':
     log = init_logger()
     log.info('Starting agent...')
     while True:
-        monitor.eval_chekcs()
+        monitor.eval_checks()
         log.debug('Sleeping...')
         time.sleep(POLL_INTERVAL)
 

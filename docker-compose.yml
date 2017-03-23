@@ -1,0 +1,21 @@
+version: '2'
+services:
+  infra-alert-server:
+    image: wjimenez5271/rancher-infra-alerting-server
+    stdin_open: true
+    tty: true
+    ports:
+    - 5050:5050/tcp
+    labels:
+      io.rancher.container.pull_image: always
+  rancher-infra-client:
+    image: wjimenez5271/rancher-infra-alerting-client
+    environment:
+      SERVER_HOSTNAME: alert-server
+    stdin_open: true
+    tty: true
+    links:
+    - infra-alert-server:alert-server
+    labels:
+      io.rancher.container.pull_image: always
+      io.rancher.container.hostname_override : container_name

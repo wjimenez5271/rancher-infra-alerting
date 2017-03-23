@@ -30,4 +30,8 @@ configuration is done through environment variables
 ### Server
 
 - `SYSLOG_HOST` - Address of syslog server to send alerts to. Assumes port 514 and UDP 
-- `LOG_LEVEL` - Verbosity of logging for the process
+.- `LOG_LEVEL` - Verbosity of logging for the process
+
+## Deploying
+
+Use the `rancher-compose.yml` and `docker-compose.yml` to create a stack in Rancher. See [Rancher Compose Docs](https://docs.rancher.com/rancher/v1.5/en/cattle/rancher-compose/)
