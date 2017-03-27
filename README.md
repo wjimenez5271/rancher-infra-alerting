@@ -12,7 +12,7 @@ communicating with etcd, and talking with the Kubernetes API (for example).
 
 When a check fails, the client makes a HTTP POST request to the server with the details of 
 the failed check. The server is then responsible for surfacing the alert to the end user. 
-Current implementation forwards the message to a syslog network endpoint. 
+Currently the tool supports two alerting backends: `syslog` and `slack`.
 
 ![Design](rancher_infra_alerting_design.png)
 
@@ -30,7 +30,11 @@ configuration is done through environment variables
 ### Server
 
 - `SYSLOG_HOST` - Address of syslog server to send alerts to. Assumes port 514 and UDP 
-.- `LOG_LEVEL` - Verbosity of logging for the process
+- `ALERT_TARGETS` - Comma separated list of targets for the alert to be sent to. 
+  Current options are `syslog` and `slack`.
+- `SLACK_API_TOKEN` (optional) - Slack API token
+- `SLACK_CHANNEL` (optional) - Slack channel to send alert to
+- `LOG_LEVEL` - Verbosity of logging for the process
 
 ## Deploying
 

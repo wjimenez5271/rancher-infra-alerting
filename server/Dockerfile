@@ -5,6 +5,7 @@ RUN apk add --update --virtual build-dependencies \
     py-pip \
     && pip install Flask==0.12 \
     && pip install tornado==4.4.2 \
+    && pip install slackclient==1.0.5 \
     && apk del build-dependencies
 ADD . /opt/
 CMD ["python", "/opt/main.py"]
