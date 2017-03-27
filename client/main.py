@@ -8,7 +8,7 @@ import dns.resolver
 
 
 # Configuration
-POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", 15))
+POLL_INTERVAL = int(os.getenv("POLL_INTERVAL", 30))
 SERVER_HOSTNAME = os.getenv("SERVER_HOSTNAME", "localhost")
 SERVER_PORT = int(os.getenv("SERVER_PORT", 5050))
 LOG_LEVEL = os.getenv("LOG_LEVEL",'DEBUG')

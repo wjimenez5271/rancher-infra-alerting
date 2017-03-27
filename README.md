@@ -22,7 +22,7 @@ configuration is done through environment variables
 
 ### Client
 
-- `POLL_INTERVAL` - Time in seconds to sleep between polling cycles 
+- `POLL_INTERVAL` - Time in seconds to sleep between polling cycles. Default `30`.  
 - `SERVER_HOSTNAME` - Hostname or IP address of alerting server to report to
 - `SERVER_PORT` - Port alerting server is listening on
 - `LOG_LEVEL` - Verbosity of logging for the process
